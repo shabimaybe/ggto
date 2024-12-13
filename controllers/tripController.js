@@ -3,7 +3,7 @@ const Trip = require('../models/tripModel');
 // Create a new trip
 const createTrip = async (req, res) => {
     try {
-      const imagePath = req.file ? req.file.path : null; // Get the Cloudinary URL of the uploaded image
+      const imagePath = req.files ? req.files.map(file => file.path) : [];// Get the Cloudinary URL of the uploaded image
   
       const trip = new Trip({
         tripName: req.body.tripName,
