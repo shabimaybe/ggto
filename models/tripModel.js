@@ -27,7 +27,7 @@ const tripSchema = new mongoose.Schema({
   },
   availableRooms: {
     type: Number,
-    required: true
+    required: false
   },
   vipAccess: {
     type: Boolean,
@@ -35,7 +35,7 @@ const tripSchema = new mongoose.Schema({
   },
   originalPrice: {
     type: Number,
-    required: true
+    required: false
   },
   discount: {
     type: Number,
