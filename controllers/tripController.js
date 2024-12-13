@@ -10,8 +10,6 @@ const createTrip = async (req, res) => {
         location: req.body.location,
         price: req.body.price,
         duration: req.body.duration,
-        rating: req.body.rating,
-        reviews: req.body.reviews,
         mealsIncluded: req.body.mealsIncluded,
         transportIncluded: req.body.transportIncluded,
         availableRooms: req.body.availableRooms,

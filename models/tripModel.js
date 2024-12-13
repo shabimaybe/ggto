@@ -17,14 +17,6 @@ const tripSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  rating: {
-    type: Number,
-    required: true
-  },
-  reviews: {
-    type: Number,
-    required: true
-  },
   mealsIncluded: {
     type: Boolean,
     default: false
