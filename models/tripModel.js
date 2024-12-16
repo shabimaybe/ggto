@@ -41,10 +41,13 @@ const tripSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
-  image: [{
-    type: String, // Store the Cloudinary URL(s) of the image(s)
-    required: true
-  }],
+  image: [
+  {
+    type: String, // Store the Cloudinary URL of the image
+    required: false,
+    
+  },
+],
   createdAt: {
     type: Date,
     default: Date.now

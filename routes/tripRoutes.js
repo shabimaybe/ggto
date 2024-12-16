@@ -9,10 +9,11 @@ const {
 } = require('../controllers/tripController');
 const upload = require('../middleware/upload');
 const { protect, adminOnly } = require('../middleware/authMiddleware');
+const { uploadMultiple } = require('../middleware/upload');
 
 // @route   POST /api/trips
 // @desc    Create a new trip package
-router.post('/', protect, adminOnly, upload.single('image'), createTrip);
+router.post('/', protect, adminOnly, uploadMultiple, createTrip);
 
 // @route   GET /api/trips
 // @desc    Get all trips
