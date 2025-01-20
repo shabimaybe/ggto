@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
 const asyncHandler = require('express-async-handler');
 
+// Protect middleware
 const protect = asyncHandler(async (req, res, next) => {
   let token;
 
@@ -14,23 +15,30 @@ const protect = asyncHandler(async (req, res, next) => {
 
       next();
     } catch (error) {
-      res.status(401);
-      throw new Error('Not authorized, token failed');
+      res.status(401).json({
+        success: false,
+        message: 'Not authorized, token failed',
+      });
+      return;
     }
-  }
-
-  if (!token) {
-    res.status(401);
-    throw new Error('Not authorized, no token');
+  } else {
+    res.status(401).json({
+      success: false,
+      message: 'Not authorized, no token',
+    });
+    return;
   }
 });
 
+// Admin-only middleware
 const adminOnly = (req, res, next) => {
   if (req.user && req.user.role === 'admin') {
     next();
   } else {
-    res.status(403);
-    throw new Error('Not authorized as admin');
+    res.status(403).json({
+      success: false,
+      message: 'Not authorized as admin',
+    });
   }
 };
 
