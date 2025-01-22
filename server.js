@@ -7,6 +7,8 @@ const userRoutes = require('./routes/userRoutes');
 const tourRoutes = require('./routes/tourRoutes'); 
 const hotelRoutes = require('./routes/hotelRoutes');
 const tripRoutes = require('./routes/tripRoutes');
+const bookingRoutes = require('./routes/bookingRoutes');
+
 
 dotenv.config();
 
@@ -21,6 +23,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/tours', tourRoutes);
 app.use('/api/hotels', hotelRoutes);
 app.use('/api/trips', tripRoutes);
+app.use('/api/bookings', bookingRoutes);
 
 const PORT = process.env.PORT || 5000;
 
